@@ -39,7 +39,7 @@ cd socialnetwork
 rvm use ruby-2.1.0@socialnetwork --create
 
 Add the neo4j gem to the Gemfile:
-gem 'neo4j', :git => 'git@github.com:andreasronge/neo4j.git'
+gem 'neo4j', :github => 'andreasronge/neo4j'
 
 At the bottom of the Gemfile add the version of ruby. This is supported by both RVM and Heroku.
 ruby "2.1.0"
@@ -55,4 +55,12 @@ brew update
 brew install neo4j
 neo4j start
 
+Heroku
+
+Install Heroku Toolbelt
+https://toolbelt.heroku.com/
+
+heroku create
+heroku keys:add
+git push heroku master
 
