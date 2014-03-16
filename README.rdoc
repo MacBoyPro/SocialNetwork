@@ -1,12 +1,14 @@
 == README
 
+A Social Network built on top of a graph database in Rails
+
 * Rails version
 
 4.0.4
 
 * Ruby version
 
-2.0.1
+2.1.0
 
 * Dependencies
 
@@ -36,9 +38,11 @@ rails new socialnetwork
 cd socialnetwork
 rvm use ruby-2.1.0@socialnetwork --create
 
-
 Add the neo4j gem to the Gemfile:
 gem 'neo4j', :git => 'git@github.com:andreasronge/neo4j.git'
+
+At the bottom of the Gemfile add the version of ruby. This is supported by both RVM and Heroku.
+ruby "2.1.0"
 
 Install app dependencies
 bundle install
