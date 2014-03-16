@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Use Neo4j as the database for Active Record
+# Use Neo4j as the database
 gem 'neo4j', :github => 'andreasronge/neo4j'
+
+# Use PG for Heroku
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

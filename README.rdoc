@@ -14,10 +14,13 @@ A Social Network built on top of a graph database in Rails
 
 Neo4J
 Heroku
+Postgres
 
 * Configuration
 
 * Database creation
+
+brew install postgresql
 
 * Database initialization
 
@@ -43,6 +46,9 @@ rm -rf db
 
 Add the neo4j gem to the Gemfile:
 gem 'neo4j', :github => 'andreasronge/neo4j'
+
+Add postgres gem to Gemfile for Heroku
+gem 'pg'
 
 At the bottom of the Gemfile add the version of ruby. This is supported by both RVM and Heroku.
 ruby "2.1.0"
