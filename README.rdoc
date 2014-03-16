@@ -30,6 +30,16 @@ brew install postgresql
 
 * Deployment instructions
 
+* Connecting to the Database
+
+Create a neo4j.rb in config/initializers
+
+if Rails.env.production?
+	Neo4j::Session.open(:server_db, ENV["GRAPHENEDB_URL"])
+else
+	Neo4j::Session.open(:server_db, "http://localhost:7474")
+end
+
 * Installation
 
 rvm get stable
