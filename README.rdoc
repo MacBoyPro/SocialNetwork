@@ -38,6 +38,9 @@ rails new socialnetwork
 cd socialnetwork
 rvm use ruby-2.1.0@socialnetwork --create
 
+Since we don't need the db directory
+rm -rf db
+
 Add the neo4j gem to the Gemfile:
 gem 'neo4j', :github => 'andreasronge/neo4j'
 
