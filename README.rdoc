@@ -65,5 +65,24 @@ https://toolbelt.heroku.com/
 
 heroku create
 heroku keys:add
+
+Part of the precompile:assets initializes the application and connects to the database. To successfully deploy to heroku we have to make a dummy database for activerecord to connect to.. <_<
+
+Sample database.yml:
+
+production:
+  adapter: postgresql
+  database: sample_production
+
+To add postgres:
+heroku addons:add heroku-postgresql
+
+To get the database URL type
+heroku config
+HEROKU_POSTGRESQL_COPPER_URL: postgres://amazonaws.com
+
+This will set the DATABASE_URL property on heroku
+heroku pg:promote HEROKU_POSTGRESQL_COPPER_URL
+
 git push heroku master
 
