@@ -1,13 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Rails version
 
-Things you may want to cover:
+4.0.4
 
 * Ruby version
 
-* System dependencies
+2.0.1
+
+* Dependencies
+
+Neo4J
+Heroku
 
 * Configuration
 
@@ -21,8 +25,30 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Installation
+
+rvm get stable
+rvm install ruby-2.1.0
+gem install rails
+
+rails new socialnetwork
+
+cd socialnetwork
+rvm use ruby-2.1.0@socialnetwork --create
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Add the neo4j gem to the Gemfile:
+gem 'neo4j', :git => 'git@github.com:andreasronge/neo4j.git'
+
+Install app dependencies
+bundle install
+
+Verify Rails starts
+rails s
+
+Install neo4j community edition
+brew update
+brew install neo4j
+neo4j start
+
+
