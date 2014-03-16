@@ -1,0 +1,5 @@
+development:
+	graph_url: http://localhost:7474 
+
+test:
+	graph_url: http://localhost:7474

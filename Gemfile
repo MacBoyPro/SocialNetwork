@@ -6,9 +6,6 @@ gem 'rails', '4.0.4'
 # Use Neo4j as the database
 gem 'neo4j', :github => 'andreasronge/neo4j'
 
-# Use PG for Heroku
-gem 'pg'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -35,7 +32,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'rails_12factor', group: :production
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

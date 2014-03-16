@@ -16,6 +16,16 @@ Neo4J
 Heroku
 Postgres
 
+* Links
+
+https://github.com/andreasronge/neo4j/wiki/Neo4j-v3
+
+https://devcenter.heroku.com/articles/getting-started-with-rails4
+
+http://rubyonrails.org/download
+
+http://docs.graphenedb.com/faq.html#supported-heroku-versions
+
 * Configuration
 
 * Database creation
@@ -34,11 +44,7 @@ brew install postgresql
 
 Create a neo4j.rb in config/initializers
 
-if Rails.env.production?
-	Neo4j::Session.open(:server_db, ENV["GRAPHENEDB_URL"])
-else
-	Neo4j::Session.open(:server_db, "http://localhost:7474")
-end
+Neo4j::Session.open(:server_db, ENV["GRAPHENEDB_URL"])
 
 * Installation
 
