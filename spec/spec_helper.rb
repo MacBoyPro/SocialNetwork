@@ -38,4 +38,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:suite) do
+    Neo4j._query("START n = node(*) MATCH n-[r?]-() WHERE ID(n)>0 DELETE n, r;")
+  end
 end
