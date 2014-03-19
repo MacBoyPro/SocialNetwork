@@ -8,4 +8,4 @@ test:
 
 production:
   adapter: postgresql
-  database: sample_production
+  database: social_network_production
