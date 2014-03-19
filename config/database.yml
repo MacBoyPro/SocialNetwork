@@ -1,3 +1,7 @@
+development:
+  adapter: postgresql
+  database: social_network_development
+
 test:
   adapter: postgresql
   database: social_network_test

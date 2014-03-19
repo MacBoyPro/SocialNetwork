@@ -40,6 +40,6 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.before(:suite) do
-    # Neo4j._query("START n = node(*) MATCH n-[r?]-() WHERE ID(n)>0 DELETE n, r;")
+    # Neo4j::Session.current.query("START n = node(*) MATCH n-[r?]-() WHERE ID(n)>0 DELETE n, r;")
   end
 end
