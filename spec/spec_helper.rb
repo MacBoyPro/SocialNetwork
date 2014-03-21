@@ -40,7 +40,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.before(:suite) do
-    # Neo4j::Session.current.query("START n = node(*) MATCH n-[r?]-() WHERE ID(n)>0 DELETE n, r;")
+    FactoryGirl.lint
+    Neo4j::Session.current.query("START n = node(*) OPTIONAL MATCH n-[r]-() WHERE ID(n)>0 DELETE n, r;")
   end
 end

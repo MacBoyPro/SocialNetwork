@@ -17,6 +17,8 @@ class User
   ##################
 
   property :email, :index => :exact, :unique => true
+  property :firstname
+  property :lastname
   property :encrypted_password
   property :created_at
   property :updated_at
