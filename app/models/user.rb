@@ -18,14 +18,16 @@ class User
 
   property :email, :index => :exact, :unique => true
   property :encrypted_password
+  property :created_at
+  property :updated_at
   
 
   ###################
   ### Validations ###
   ###################
 
-  validates :password, :presence     => true,
-                       :confirmation => true,
-                       :length       => { :within => 6..40 }
+  validates :password, presence: true,
+                       confirmation: true,
+                       length: { :within => 6..40 }
 
 end
