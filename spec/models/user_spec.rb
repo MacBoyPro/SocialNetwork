@@ -1,6 +1,27 @@
 require 'spec_helper'
 
 describe User do
+
+  it do
+    should have_attribute(:first_name).
+      of_type(String)
+  end
+
+  it do
+    should have_attribute(:last_name).
+      of_type(String)
+  end
+
+  it do
+    should have_attribute(:email).
+      of_type(String)
+  end
+
+  it do
+    should have_attribute(:encrypted_password).
+      of_type(String)
+  end
+
   context "password" do
     it "fails all validations with no password" do
       expect(User.new).to have(3).errors_on(:password)

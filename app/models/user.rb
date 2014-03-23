@@ -1,7 +1,9 @@
+require 'orm_adapter'
+
 class User 
   include Neo4j::ActiveNode
   extend ::Devise::Models
-  extend ::Devise::Orm::Neo4j::Hook
+  extend ::Devise::Orm::Neo4j
 
   ##############
   ### Devise ###
@@ -16,12 +18,28 @@ class User
   ### Properties ###
   ##################
 
-  property :email, :index => :exact, :unique => true
-  property :firstname
-  property :lastname
-  property :encrypted_password
-  property :created_at
-  property :updated_at
+  property :email, :type => String, :index => :exact, :unique => true
+  property :first_name, :type => String
+  property :last_name, :type => String
+  property :encrypted_password, :type => String
+  property :created_at, :type => DateTime
+  property :updated_at, :type => DateTime
+
+  ## Rememberable
+  property :remember_created_at, :type => DateTime, :index => :exact
+
+  ## Recoverable
+  property :reset_password_token,   :type => String, :index => :exact
+  property :reset_password_sent_at, :type => DateTime
+
+  ## Trackable
+  property :sign_in_count, :type => Integer, :default => 0
+  property :current_sign_in_at, :type => DateTime
+  property :last_sign_in_at, :type => DateTime
+  property :current_sign_in_ip, :type =>  String
+  property :last_sign_in_ip, :type => String
+
+
   
 
   ###################
@@ -32,4 +50,12 @@ class User
                        confirmation: true,
                        length: { :within => 6..40 }
 
+  ########################
+  ### Devise Overrides ###
+  ########################
+
+  def self.serialize_from_session(key, salt)
+    record = self.find(key.first)
+    record if record && record.authenticatable_salt == salt
+  end     
 end
