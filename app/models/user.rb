@@ -38,6 +38,11 @@ class User
   property :current_sign_in_ip, :type =>  String
   property :last_sign_in_ip, :type => String
 
+  ####################
+  ### Associations ###
+  ####################
+
+  has_n(:followed_users).to(User)
 
   ###################
   ### Validations ###

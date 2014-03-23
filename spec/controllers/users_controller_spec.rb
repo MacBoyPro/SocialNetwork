@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe UsersController do
 
-
   describe "GET INDEX" do
 
     describe "Signed in user" do
@@ -172,4 +171,26 @@ describe UsersController do
       end
     end #Signed out user
   end #PUT UPDATE
+
+  describe "GET FOLLOW" do
+    context "signed in user" do
+      let(:signed_in_user) { FactoryGirl.create(:user) }
+      let(:user) { FactoryGirl.create(:user) }
+
+      before do
+        sign_in :user, signed_in_user
+        get :follow, id: user.id
+      end
+
+      it "responds with success" do
+        expect(response.code).to eq("302")
+        expect(response).to redirect_to(user_path(user))
+      end
+
+      it "follows the user" do
+        expect(signed_in_user.followed_users).not_to be_empty
+        expect(signed_in_user.followed_users.first.id).to eq(user.id)
+      end
+    end
+  end
 end

@@ -29,4 +29,10 @@ class UsersController < ApplicationController
       render :edit, status: :forbidden
     end
   end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.followed_users << @user
+    redirect_to @user
+  end
 end

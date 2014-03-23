@@ -37,4 +37,20 @@ describe User do
       expect(user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
   end
+
+  describe "Associations" do
+    context "followed_users" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:user2) { FactoryGirl.create(:user) }
+      let(:user3) { FactoryGirl.create(:user) }
+
+      it "can follow another user" do
+        user.followed_users << user2
+        user.save
+        user.reload
+        expect(user.followed_users).not_to be_empty
+        expect(user.followed_users.first.id).to eq(user2.id)
+      end
+    end
+  end
 end

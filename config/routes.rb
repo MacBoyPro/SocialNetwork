@@ -8,6 +8,8 @@ Socialnetwork::Application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show, :edit, :update]
+  get 'users/follow/:id' => 'users#follow'
+  
   # get 'users/:id' => 'users#show'
 
   # Example of regular route:
