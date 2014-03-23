@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-gem "devise-neo4j", github: 'ni-ka/devise-neo4j'
+gem "devise-neo4j", github: 'MacBoyPro/devise-neo4j', ref: "42f7c101d12f22de15a459b7401ad43e528744b3"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

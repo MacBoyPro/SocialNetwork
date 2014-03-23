@@ -13,7 +13,6 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   ##################
   ### Properties ###
   ##################
@@ -40,15 +39,13 @@ class User
   property :last_sign_in_ip, :type => String
 
 
-  
-
   ###################
   ### Validations ###
   ###################
 
   validates :password, presence: true,
                        confirmation: true,
-                       length: { :within => 6..40 }
+                       length: { :within => 6..40 }, if: :password_required?
 
   ########################
   ### Devise Overrides ###

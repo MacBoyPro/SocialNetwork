@@ -1,4 +1,17 @@
 GIT
+  remote: git://github.com/MacBoyPro/devise-neo4j.git
+  revision: 42f7c101d12f22de15a459b7401ad43e528744b3
+  ref: 42f7c101d12f22de15a459b7401ad43e528744b3
+  specs:
+    devise-neo4j (1.0.4)
+      bcrypt-ruby (~> 3.0)
+      devise (~> 3.0)
+      neo4j (>= 2.2.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.1)
+      warden (~> 1.2.1)
+
+GIT
   remote: git://github.com/andreasronge/neo4j.git
   revision: 9743863e2604c4400b446d91d9921ca63ca7b257
   specs:
@@ -8,18 +21,6 @@ GIT
       neo4j-core (= 3.0.0.alpha.9)
       orm_adapter (~> 0.4.0)
       railties (~> 4.0.0)
-
-GIT
-  remote: git://github.com/ni-ka/devise-neo4j.git
-  revision: 49d6b9de00bdf21a99ef9c019401df449809dc83
-  specs:
-    devise-neo4j (1.0.4)
-      bcrypt-ruby (~> 3.0)
-      devise (~> 3.0)
-      neo4j (>= 2.2.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.1)
-      warden (~> 1.2.1)
 
 GEM
   remote: https://rubygems.org/

@@ -5,7 +5,7 @@
 <% @users.each do |user| %>
 
 <li>
-  <%= user.email %>: <%= user.first_name %> <%= user.last_name %>
+  <%= user.email %>: <%= user.first_name %> <%= user.last_name %> <a href="<%= edit_user_path(user) %>">EDIT</a>
 </li>
 
 <% end %>
