@@ -58,4 +58,8 @@ class User
     record = self.find(key.first)
     record if record && record.authenticatable_salt == salt
   end     
+
+  def self.find_first_by_auth_conditions(tainted_conditions, opts={})
+    self.find(devise_parameter_filter.filter(tainted_conditions).merge(opts))
+  end
 end

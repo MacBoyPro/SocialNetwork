@@ -39,6 +39,10 @@ group :development, :test do
   gem 'debugger'
 end
 
+group :development do
+  gem "better_errors"
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

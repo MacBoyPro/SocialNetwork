@@ -49,4 +49,8 @@ RSpec.configure do |config|
     FactoryGirl.lint
     Neo4j::Session.current.query("START n = node(*) OPTIONAL MATCH n-[r]-() WHERE ID(n)>0 DELETE n, r;")
   end
+
+  config.after(:suite) do
+    Neo4j::Session.current.query("START n = node(*) OPTIONAL MATCH n-[r]-() WHERE ID(n)>0 DELETE n, r;")
+  end
 end
